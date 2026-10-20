@@ -16,15 +16,15 @@ export function Home() {
       <section className="hero">
         <div className="wrap hero-inner">
           <div className="hero-copy">
-            <p className="kicker">Train higher</p>
+            <p className="kicker">Train deeper</p>
             <h1>
               <span className="sr">Deep Tech Lifting Club</span>
               <LogoMark />
             </h1>
             <p className="hero-deck">
-              Discipline builds
+              Wear for the
               <br />
-              a higher horizon.
+              jacked tech nerds.
             </p>
             <Link to="/shop" className="btn">
               Shop collection <span aria-hidden="true">→</span>

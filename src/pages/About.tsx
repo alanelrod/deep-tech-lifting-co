@@ -17,7 +17,7 @@ export function About() {
     <div className="wrap about">
       <header className="page-head">
         <p className="kicker">About</p>
-        <h1>Discipline builds a higher horizon.</h1>
+        <h1>Wear for the jacked tech nerds.</h1>
       </header>
 
       <div className="about-grid">
@@ -31,7 +31,7 @@ export function About() {
             heavy, open where the work gets hot. The back of the hoodie is a horizon: a range, a ringed globe,
             the phases of the moon. You face the bar. The horizon stays behind you.
           </p>
-          <p>Established 2026. Train higher.</p>
+          <p>Established 2026. Train deeper.</p>
           <Link to="/shop" className="btn">
             Shop collection <span aria-hidden="true">→</span>
           </Link>
