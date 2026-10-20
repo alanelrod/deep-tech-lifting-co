@@ -62,11 +62,11 @@ const PAGES: Record<string, { title: string; kicker: string; sections: { heading
     sections: [
       {
         heading: "What stays here",
-        body: "Your bag, member email, checkout request, and waitlist details are stored in this browser. They are not sent to a server, and they are not shared.",
+        body: "Your bag, member email, and checkout request stay in this browser. A waitlist signup is sent to the shop server: name, email, phone, address, piece, and size.",
       },
       {
         heading: "Waitlist",
-        body: "Joining a waitlist saves your name, email, phone, and address in this browser, with the piece and size. No card numbers. No accounts with passwords. Google Analytics measures visits on this site.",
+        body: "Joining a waitlist sends your name, email, phone, and address to the shop, with the piece and size. No card numbers. No accounts with passwords. Google Analytics measures visits on this site.",
       },
       {
         heading: "Clearing it",

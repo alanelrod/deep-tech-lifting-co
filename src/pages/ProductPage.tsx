@@ -13,11 +13,13 @@ export function ProductPage() {
   const [qty, setQty] = useState(1);
   const [sizeError, setSizeError] = useState(false);
   const [openDetails, setOpenDetails] = useState(true);
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   useEffect(() => {
     setSize(null);
     setQty(1);
     setSizeError(false);
+    setWaitlistOpen(false);
     if (product) document.title = `${product.name} — Deep Tech Lifting Club`;
     else document.title = "Not found — Deep Tech Lifting Club";
   }, [product]);
@@ -39,9 +41,12 @@ export function ProductPage() {
   const related = products.filter((item) => item.slug !== product.slug);
 
   function addToBag() {
-    if (product!.soldOut) return;
     if (!size) {
       setSizeError(true);
+      return;
+    }
+    if (product!.soldOut) {
+      setWaitlistOpen(true);
       return;
     }
     add(product!.slug, size, qty);
@@ -61,11 +66,7 @@ export function ProductPage() {
         <p className="price">{money(product.price)}</p>
         <p className="lede">{product.description}</p>
 
-        {product.soldOut ? (
-          <WaitlistForm product={product} />
-        ) : (
-          <>
-        <fieldset className={`sizes ${sizeError ? "has-error" : ""}`} disabled={product.soldOut}>
+        <fieldset className={`sizes ${sizeError ? "has-error" : ""}`}>
           <legend>Size</legend>
           <div className="size-row">
             {SIZES.map((option) => (
@@ -74,7 +75,6 @@ export function ProductPage() {
                 type="button"
                 className={size === option ? "is-on" : ""}
                 aria-pressed={size === option}
-                disabled={product.soldOut}
                 onClick={() => {
                   setSize(option);
                   setSizeError(false);
@@ -100,11 +100,10 @@ export function ProductPage() {
             </div>
           )}
           <button type="button" className="btn btn-grow" onClick={addToBag}>
-            Add to bag <span aria-hidden="true">→</span>
+            {product.soldOut ? "Join waitlist" : "Add to bag"} <span aria-hidden="true">→</span>
           </button>
         </div>
-          </>
-        )}
+        {waitlistOpen && size && <WaitlistForm product={product} size={size} onClose={() => setWaitlistOpen(false)} />}
 
         <div className="accordion">
           <button type="button" aria-expanded={openDetails} onClick={() => setOpenDetails((open) => !open)}>
