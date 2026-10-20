@@ -150,7 +150,7 @@ export function Header({ overlay }: { overlay: boolean }) {
                       <img src={product.image} alt="" />
                       <span>
                         <strong>{product.name}</strong>
-                        <em>{product.soldOut ? "Sold out" : `$${product.price}`}</em>
+                        <em>{product.soldOut ? "Waitlist" : `$${product.price}`}</em>
                       </span>
                       <span aria-hidden="true">→</span>
                     </Link>

@@ -58,7 +58,7 @@ export function ProductPage() {
         <p className="kicker">{product.category}</p>
         <h1>{product.name}</h1>
         <p className="price">{money(product.price)}</p>
-        {product.soldOut && <p className="sold-note">Sold out</p>}
+        {product.soldOut && <p className="sold-note">Waitlist</p>}
         <p className="lede">{product.description}</p>
 
         <fieldset className={`sizes ${sizeError ? "has-error" : ""}`} disabled={product.soldOut}>
@@ -96,7 +96,7 @@ export function ProductPage() {
             </div>
           )}
           <button type="button" className="btn btn-grow" onClick={addToBag} disabled={product.soldOut}>
-            {product.soldOut ? "Sold out" : <>Add to bag <span aria-hidden="true">→</span></>}
+            {product.soldOut ? "Waitlist" : <>Add to bag <span aria-hidden="true">→</span></>}
           </button>
         </div>
 

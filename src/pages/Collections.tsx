@@ -33,7 +33,7 @@ export function Collections() {
                     <li key={slug}>
                       <Link to={`/product/${product.slug}`}>
                         {product.name}
-                        <span>{product.soldOut ? "Sold out" : `$${product.price}`}</span>
+                        <span>{product.soldOut ? "Waitlist" : `$${product.price}`}</span>
                       </Link>
                     </li>
                   );

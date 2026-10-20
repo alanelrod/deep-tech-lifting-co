@@ -11,7 +11,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div>
           <div className="pcard-name">{product.name}</div>
           <div className="pcard-price">{money(product.price)}</div>
-          {product.soldOut && <div className="pcard-sold">Sold out</div>}
+          {product.soldOut && <div className="pcard-sold">Waitlist</div>}
         </div>
         <span className="pcard-arrow" aria-hidden="true">
           →
