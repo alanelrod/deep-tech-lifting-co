@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ProductCard } from "../components/ProductCard";
+import { WaitlistForm } from "../components/WaitlistForm";
 import { useCart } from "../context/CartContext";
 import { SIZES, getProduct, money, products } from "../data/products";
 
@@ -58,9 +59,12 @@ export function ProductPage() {
         <p className="kicker">{product.category}</p>
         <h1>{product.name}</h1>
         <p className="price">{money(product.price)}</p>
-        {product.soldOut && <p className="sold-note">Waitlist</p>}
         <p className="lede">{product.description}</p>
 
+        {product.soldOut ? (
+          <WaitlistForm product={product} />
+        ) : (
+          <>
         <fieldset className={`sizes ${sizeError ? "has-error" : ""}`} disabled={product.soldOut}>
           <legend>Size</legend>
           <div className="size-row">
@@ -95,10 +99,12 @@ export function ProductPage() {
               </button>
             </div>
           )}
-          <button type="button" className="btn btn-grow" onClick={addToBag} disabled={product.soldOut}>
-            {product.soldOut ? "Waitlist" : <>Add to bag <span aria-hidden="true">→</span></>}
+          <button type="button" className="btn btn-grow" onClick={addToBag}>
+            Add to bag <span aria-hidden="true">→</span>
           </button>
         </div>
+          </>
+        )}
 
         <div className="accordion">
           <button type="button" aria-expanded={openDetails} onClick={() => setOpenDetails((open) => !open)}>

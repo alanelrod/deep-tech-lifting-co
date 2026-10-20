@@ -1057,8 +1057,12 @@ h2,
 }
 
 .form-ok {
-  margin: 0;
+  margin: 18px 0 0;
   color: #fff;
+}
+
+.waitlist {
+  margin-top: 22px;
 }
 
 .modal {
