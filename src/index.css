@@ -6,7 +6,7 @@
   --soft: #111;
   --stage: #8d8d8d;
   --display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
-  --varsity: "Alumni Sans Collegiate One", "Arial Black", Impact, sans-serif;
+  --varsity: Graduate, "Arial Black", serif;
   --sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color-scheme: dark;
 }
@@ -22,6 +22,11 @@ body,
   min-height: 100%;
   background: var(--bg);
   color: var(--fg);
+}
+
+html,
+body {
+  overflow-x: clip;
 }
 
 body {
@@ -171,7 +176,7 @@ h2,
   position: fixed;
   inset: 0 0 auto;
   z-index: 30;
-  height: 84px;
+  height: 96px;
   display: flex;
   align-items: center;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), transparent);
@@ -197,30 +202,20 @@ h2,
   width: max-content;
 }
 
-.logo-word,
-.logo-sub,
-.hero-copy h1,
-.footer-brand > span:first-child {
-  font-family: var(--varsity);
-  font-weight: 400;
-  letter-spacing: 0.01em;
+.logo-mark {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
-.logo-word {
-  font-size: 30px;
-  line-height: 0.78;
+.logo .logo-mark {
+  width: 188px;
 }
 
-.logo-sub {
-  margin-top: 4px;
-  font-size: 13px;
-  letter-spacing: 0.06em;
-}
-
-.logo-prompt {
-  margin-top: 3px;
-  font-size: 12px;
-  letter-spacing: 0.04em;
+.footer-brand .logo-mark {
+  width: 210px;
+  margin-bottom: 10px;
 }
 
 .nav {
@@ -284,7 +279,7 @@ h2,
 
 .mobile-nav {
   position: fixed;
-  inset: 84px 0 0;
+  inset: 96px 0 0;
   z-index: 25;
   background: #000;
   display: flex;
@@ -313,7 +308,7 @@ h2,
 .hero-inner {
   min-height: 100svh;
   display: grid;
-  grid-template-columns: minmax(280px, 0.82fr) minmax(320px, 1.18fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   align-items: center;
   gap: 48px;
   padding: 120px 0 56px;
@@ -325,11 +320,26 @@ h2,
   background: var(--stage);
 }
 
+.hero-copy {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .hero-copy h1 {
-  margin: 0;
-  font-size: clamp(56px, 5.4vw, 92px);
-  line-height: 0.84;
-  letter-spacing: 0.01em;
+  margin: 0 0 18px;
+  max-width: 100%;
+  font-family: var(--sans);
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0;
+  text-transform: none;
+}
+
+.hero-copy h1 .logo-mark {
+  width: 100%;
+  max-width: 520px;
+  min-width: 0;
 }
 
 .hero-deck {
@@ -442,7 +452,7 @@ h2,
 }
 
 .page {
-  padding-top: 84px;
+  padding-top: 96px;
   min-height: calc(100vh - 160px);
 }
 
@@ -1172,6 +1182,7 @@ h2,
   .hero-inner {
     min-height: 0;
     padding-top: 112px;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .collection-row:nth-child(even) .collection-shot {
@@ -1202,6 +1213,10 @@ h2,
 
   .hero-copy h1 {
     font-size: 58px;
+  }
+
+  .hero-copy h1 .logo-mark {
+    width: min(100%, 300px);
   }
 
   .product-grid {

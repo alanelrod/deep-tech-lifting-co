@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { LogoMark } from "../components/LogoMark";
 import { ProductCard } from "../components/ProductCard";
 import { asset, products } from "../data/products";
 
@@ -17,9 +18,8 @@ export function Home() {
           <div className="hero-copy">
             <p className="kicker">Train higher</p>
             <h1>
-              Deep Tech
-              <br />
-              Lifting Club
+              <span className="sr">Deep Tech Lifting Club</span>
+              <LogoMark />
             </h1>
             <p className="hero-deck">
               Discipline builds

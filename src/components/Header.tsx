@@ -2,6 +2,7 @@ import { useEffect, useId, useState, type FormEvent } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { products } from "../data/products";
+import { LogoMark } from "./LogoMark";
 
 const NAV = [
   { to: "/", label: "Home", end: true },
@@ -60,15 +61,7 @@ export function Header({ overlay }: { overlay: boolean }) {
       <header className={`header ${solid ? "is-solid" : ""}`}>
         <div className="wrap header-inner">
           <Link to="/" className="logo" aria-label="Deep Tech Lifting Club, home">
-            <span className="logo-word">
-              DEEP
-              <br />
-              TECH
-            </span>
-            <span className="logo-sub">Lifting Club</span>
-            <span className="logo-prompt" aria-hidden="true">
-              &gt;_
-            </span>
+            <LogoMark variant="compact" />
           </Link>
 
           <nav className="nav" aria-label="Primary">

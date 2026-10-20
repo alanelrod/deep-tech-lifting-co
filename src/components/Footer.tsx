@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import { LogoMark } from "./LogoMark";
 
 export function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer-inner">
         <div className="footer-brand">
-          <span>Deep Tech Lifting Club</span>
+          <LogoMark variant="compact" />
           <span className="footer-est">Est. 2026</span>
         </div>
         <div className="footer-prompt" aria-hidden="true">
