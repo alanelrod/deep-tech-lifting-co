@@ -840,6 +840,23 @@ h2,
   height: 16px;
 }
 
+.footer-solis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: none;
+}
+
+.footer-solis img {
+  width: 28px;
+  height: 28px;
+}
+
 .drawer-root,
 .modal-root {
   position: fixed;

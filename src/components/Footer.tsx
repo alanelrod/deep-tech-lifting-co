@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { asset } from "../data/products";
 import { LogoMark } from "./LogoMark";
 
 export function Footer() {
@@ -23,6 +24,10 @@ export function Footer() {
             <SocialIcon kind="youtube" />
           </span>
         </div>
+      </div>
+      <div className="wrap footer-solis">
+        <img src={asset("images/solis.png")} alt="" />
+        <span>a Solis Consulting company</span>
       </div>
     </footer>
   );
