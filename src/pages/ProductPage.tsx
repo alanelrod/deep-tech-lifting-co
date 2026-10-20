@@ -54,6 +54,7 @@ export function ProductPage() {
 
   return (
     <article className="wrap product">
+      <div className="product-main">
       <div className="gallery">
         <div className="stage">
           <img src={product.image} alt={product.alt} />
@@ -118,6 +119,7 @@ export function ProductPage() {
             </ul>
           )}
         </div>
+      </div>
       </div>
 
       <section className="related" aria-labelledby="related-title">

@@ -506,10 +506,16 @@ h2,
 
 .product {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-  gap: 48px 56px;
+  gap: 56px;
   padding-top: 28px;
   padding-bottom: 72px;
+}
+
+.product-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 48px 56px;
+  align-items: start;
 }
 
 .stage {
@@ -1200,6 +1206,7 @@ h2,
 
   .hero-inner,
   .product,
+  .product-main,
   .about-grid,
   .collection-row,
   .checkout-grid,
