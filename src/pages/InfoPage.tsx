@@ -66,7 +66,7 @@ const PAGES: Record<string, { title: string; kicker: string; sections: { heading
       },
       {
         heading: "What we don't collect",
-        body: "No card numbers. No accounts with passwords. No tracking pixels on this site.",
+        body: "No card numbers. No accounts with passwords. Google Analytics measures visits on this site. The bag and the member email still stay in this browser.",
       },
       {
         heading: "Clearing it",
