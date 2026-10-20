@@ -6,6 +6,7 @@
   --soft: #111;
   --stage: #8d8d8d;
   --display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+  --varsity: "Alumni Sans Collegiate One", "Arial Black", Impact, sans-serif;
   --sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color-scheme: dark;
 }
@@ -196,15 +197,24 @@ h2,
   width: max-content;
 }
 
+.logo-word,
+.logo-sub,
+.hero-copy h1,
+.footer-brand > span:first-child {
+  font-family: var(--varsity);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
 .logo-word {
-  font-size: 26px;
-  line-height: 0.82;
+  font-size: 30px;
+  line-height: 0.78;
 }
 
 .logo-sub {
-  margin-top: 5px;
-  font-size: 8px;
-  letter-spacing: 0.22em;
+  margin-top: 4px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
 }
 
 .logo-prompt {
@@ -406,6 +416,22 @@ h2,
   font-size: 15px;
 }
 
+.pcard-sold,
+.sold-note {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.btn:disabled {
+  background: #2a2a2a;
+  color: #8d8d8d;
+  cursor: not-allowed;
+}
+
 .pcard-arrow {
   margin-top: 2px;
   transition: transform 0.2s ease;
@@ -558,6 +584,11 @@ h2,
   background: #fff;
   color: #000;
   border-color: #fff;
+}
+
+.size-row button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .sizes.has-error .size-row button {

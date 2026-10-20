@@ -38,6 +38,7 @@ export function ProductPage() {
   const related = products.filter((item) => item.slug !== product.slug);
 
   function addToBag() {
+    if (product!.soldOut) return;
     if (!size) {
       setSizeError(true);
       return;
@@ -57,9 +58,10 @@ export function ProductPage() {
         <p className="kicker">{product.category}</p>
         <h1>{product.name}</h1>
         <p className="price">{money(product.price)}</p>
+        {product.soldOut && <p className="sold-note">Sold out</p>}
         <p className="lede">{product.description}</p>
 
-        <fieldset className={`sizes ${sizeError ? "has-error" : ""}`}>
+        <fieldset className={`sizes ${sizeError ? "has-error" : ""}`} disabled={product.soldOut}>
           <legend>Size</legend>
           <div className="size-row">
             {SIZES.map((option) => (
@@ -68,6 +70,7 @@ export function ProductPage() {
                 type="button"
                 className={size === option ? "is-on" : ""}
                 aria-pressed={size === option}
+                disabled={product.soldOut}
                 onClick={() => {
                   setSize(option);
                   setSizeError(false);
@@ -81,17 +84,19 @@ export function ProductPage() {
         </fieldset>
 
         <div className="buy-row">
-          <div className="stepper" aria-label="Quantity">
-            <button type="button" onClick={() => setQty((value) => Math.max(1, value - 1))} aria-label="Decrease quantity">
-              −
-            </button>
-            <span>{qty}</span>
-            <button type="button" onClick={() => setQty((value) => Math.min(8, value + 1))} aria-label="Increase quantity">
-              +
-            </button>
-          </div>
-          <button type="button" className="btn btn-grow" onClick={addToBag}>
-            Add to bag <span aria-hidden="true">→</span>
+          {!product.soldOut && (
+            <div className="stepper" aria-label="Quantity">
+              <button type="button" onClick={() => setQty((value) => Math.max(1, value - 1))} aria-label="Decrease quantity">
+                −
+              </button>
+              <span>{qty}</span>
+              <button type="button" onClick={() => setQty((value) => Math.min(8, value + 1))} aria-label="Increase quantity">
+                +
+              </button>
+            </div>
+          )}
+          <button type="button" className="btn btn-grow" onClick={addToBag} disabled={product.soldOut}>
+            {product.soldOut ? "Sold out" : <>Add to bag <span aria-hidden="true">→</span></>}
           </button>
         </div>
 

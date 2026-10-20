@@ -10,6 +10,7 @@ export type Product = {
   slug: string;
   name: string;
   price: number;
+  soldOut: boolean;
   category: string;
   blurb: string;
   description: string;
@@ -34,6 +35,7 @@ export const products: Product[] = [
     slug: "hoodie",
     name: "Hoodie",
     price: 88,
+    soldOut: true,
     category: "Outerwear",
     blurb: "Heavyweight fleece with the arched mark on the chest and the horizon on the back.",
     description:
@@ -52,6 +54,7 @@ export const products: Product[] = [
     slug: "tank-top",
     name: "Tank Top",
     price: 32,
+    soldOut: true,
     category: "Training",
     blurb: "Mesh racerback. A small prompt on the chest. The name runs down the spine.",
     description:
@@ -70,6 +73,7 @@ export const products: Product[] = [
     slug: "shorts",
     name: "Shorts",
     price: 48,
+    soldOut: true,
     category: "Training",
     blurb: "Training short with a white drawcord, zip pocket, and contour panels down both sides.",
     description:
@@ -88,6 +92,7 @@ export const products: Product[] = [
     slug: "pants",
     name: "Pants",
     price: 68,
+    soldOut: true,
     category: "Training",
     blurb: "Straight training pant. White drawcord, rear zip pocket, contour print on the outer leg.",
     description:
