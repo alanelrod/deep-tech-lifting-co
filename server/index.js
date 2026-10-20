@@ -4,7 +4,7 @@ import { Pool } from "pg";
 const port = Number(process.env.PORT || 8787);
 const origins = new Set(
   (process.env.CORS_ORIGINS ||
-    "https://deeptechliftingclub.com,https://www.deeptechliftingclub.com,http://deeptechliftingclub.com,https://deeptechliftingco.com,https://www.deeptechliftingco.com,http://localhost:5173,http://127.0.0.1:5173")
+    "https://deeptechliftingclub.com,https://www.deeptechliftingclub.com,http://deeptechliftingclub.com,http://localhost:5173,http://127.0.0.1:5173")
     .split(",")
     .map((origin) => origin.trim())
     .filter(Boolean),

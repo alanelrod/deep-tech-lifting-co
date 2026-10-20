@@ -23,7 +23,7 @@ export function About() {
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            Deep Tech Lifting Co makes Deep Tech Lifting Club. The mark is a prompt — &gt;_ — because the next
+            Deep Tech Lifting Club. The mark is a prompt — &gt;_ — because the next
             line is the next rep.
           </p>
           <p>
