@@ -10,13 +10,16 @@ export type Product = {
   slug: string;
   name: string;
   price: number;
+  compareAt?: number;
   soldOut: boolean;
   category: string;
   blurb: string;
   description: string;
   details: string[];
   image: string;
+  images?: string[];
   alt: string;
+  sizeNote?: string;
 };
 
 export type Collection = {
@@ -30,7 +33,7 @@ export type Collection = {
 export const FREE_SHIPPING_AT = 120;
 export const SHIPPING_FLAT = 8;
 
-export const products: Product[] = [
+const pieces: Product[] = [
   {
     slug: "hoodie",
     name: "Hoodie",
@@ -109,6 +112,34 @@ export const products: Product[] = [
   },
 ];
 
+const setFull = pieces.reduce((sum, piece) => sum + piece.price, 0);
+const setPrice = Math.round(setFull * 85) / 100;
+
+export const products: Product[] = [
+  {
+    slug: "the-set",
+    name: "The Set",
+    price: setPrice,
+    compareAt: setFull,
+    soldOut: false,
+    category: "Bundle",
+    blurb: "Hoodie, tank, shorts, and pants. Fifteen percent off, and it goes in the bag now.",
+    description:
+      "The four pieces in one size. Heavyweight hoodie, mesh tank, training shorts, and pants. Fifteen percent off the line when they ship together.",
+    details: [
+      "Hoodie, mesh tank, training shorts, and pants",
+      "One size for every piece",
+      "15% off the four",
+      "Available now",
+    ],
+    image: asset("images/hoodie.jpg"),
+    images: pieces.map((piece) => piece.image),
+    alt: "Deep Tech Lifting Club set: hoodie, mesh tank, training shorts, and pants",
+    sizeNote: "One size for every piece in the set.",
+  },
+  ...pieces,
+];
+
 export const collections: Collection[] = [
   {
     slug: "essentials",
@@ -134,7 +165,13 @@ export const collections: Collection[] = [
 ];
 
 export function money(amount: number) {
-  return `$${amount}`;
+  const cents = Math.round(amount * 100);
+  const dollars = cents / 100;
+  return Number.isInteger(dollars) ? `$${dollars}` : `$${dollars.toFixed(2)}`;
+}
+
+export function catalogPieces() {
+  return products.filter((product) => product.slug !== "the-set");
 }
 
 export function getProduct(slug: string) {

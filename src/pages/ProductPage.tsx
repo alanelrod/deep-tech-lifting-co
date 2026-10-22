@@ -56,19 +56,32 @@ export function ProductPage() {
     <article className="wrap product">
       <div className="product-main">
       <div className="gallery">
-        <div className="stage">
-          <img src={product.image} alt={product.alt} />
-        </div>
+        {product.images && product.images.length > 1 ? (
+          <div className="stage stage-sheet" role="img" aria-label={product.alt}>
+            {product.images.map((src) => (
+              <img key={src} src={src} alt="" />
+            ))}
+          </div>
+        ) : (
+          <div className="stage">
+            <img src={product.image} alt={product.alt} />
+          </div>
+        )}
       </div>
 
       <div className="buy">
         <p className="kicker">{product.category}</p>
         <h1>{product.name}</h1>
-        <p className="price">{money(product.price)}</p>
+        <p className="price">
+          {product.compareAt && <span className="price-was">{money(product.compareAt)}</span>}
+          {money(product.price)}
+        </p>
+        {!product.soldOut && <p className="sold-note">Available now · 15% off</p>}
         <p className="lede">{product.description}</p>
 
         <fieldset className={`sizes ${sizeError ? "has-error" : ""}`}>
           <legend>Size</legend>
+          {product.sizeNote && <p className="size-note">{product.sizeNote}</p>}
           <div className="size-row">
             {SIZES.map((option) => (
               <button

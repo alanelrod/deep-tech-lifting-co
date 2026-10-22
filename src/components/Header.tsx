@@ -1,7 +1,7 @@
 import { useEffect, useId, useState, type FormEvent } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import { products } from "../data/products";
+import { money, products } from "../data/products";
 import { LogoMark } from "./LogoMark";
 
 const NAV = [
@@ -150,7 +150,7 @@ export function Header({ overlay }: { overlay: boolean }) {
                       <img src={product.image} alt="" />
                       <span>
                         <strong>{product.name}</strong>
-                        <em>{product.soldOut ? "Waitlist" : `$${product.price}`}</em>
+                        <em>{product.soldOut ? "Waitlist" : money(product.price)}</em>
                       </span>
                       <span aria-hidden="true">→</span>
                     </Link>

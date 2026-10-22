@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LogoMark } from "../components/LogoMark";
+import { BundleOffer } from "../components/BundleOffer";
 import { ProductCard } from "../components/ProductCard";
-import { asset, products } from "../data/products";
+import { asset, catalogPieces } from "../data/products";
 
 const CREED = ["Code", "Lift", "Learn", "Build", "Repeat"];
 
 export function Home() {
   useEffect(() => {
-    document.title = "Deep Tech Lifting Club";
+    document.title = "Deep Tech Lifting Club — Lift Deeper | Gym Wear";
   }, []);
 
   return (
@@ -16,9 +17,9 @@ export function Home() {
       <section className="hero">
         <div className="wrap hero-inner">
           <div className="hero-copy">
-            <p className="kicker">Train deeper</p>
+            <p className="kicker">Lift deeper</p>
             <h1>
-              <span className="sr">Deep Tech Lifting Club</span>
+              <span className="sr">Deep Tech Lifting Club — Lift deeper</span>
               <LogoMark />
             </h1>
             <p className="hero-deck">
@@ -54,8 +55,9 @@ export function Home() {
               View all <span aria-hidden="true">→</span>
             </Link>
           </div>
+          <BundleOffer />
           <div className="product-grid">
-            {products.map((product) => (
+            {catalogPieces().map((product) => (
               <ProductCard key={product.slug} product={product} />
             ))}
           </div>

@@ -31,7 +31,7 @@ export function About() {
             heavy, open where the work gets hot. The back of the hoodie is a horizon: a range, a ringed globe,
             the phases of the moon. You face the bar. The horizon stays behind you.
           </p>
-          <p>Established 2026. Train deeper.</p>
+          <p>Established 2026. Lift deeper.</p>
           <Link to="/shop" className="btn">
             Shop collection <span aria-hidden="true">→</span>
           </Link>

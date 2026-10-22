@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { BundleOffer } from "../components/BundleOffer";
 import { ProductCard } from "../components/ProductCard";
-import { collections, getCollection, products } from "../data/products";
+import { catalogPieces, collections, getCollection, products } from "../data/products";
 
 export function Shop() {
   const [params] = useSearchParams();
@@ -9,7 +10,7 @@ export function Shop() {
   const collection = slug ? getCollection(slug) : undefined;
   const list = collection
     ? products.filter((product) => collection.productSlugs.includes(product.slug))
-    : products;
+    : catalogPieces();
 
   useEffect(() => {
     document.title = collection
@@ -25,7 +26,7 @@ export function Shop() {
         <p className="lede">
           {collection
             ? collection.text
-            : "Four pieces. Hoodie, tank, shorts, pants. Black, built for the work."}
+            : "Four pieces. Hoodie, tank, shorts, pants. The set is fifteen percent off."}
         </p>
       </header>
 
@@ -43,6 +44,8 @@ export function Shop() {
           </Link>
         ))}
       </div>
+
+      {!collection && <BundleOffer />}
 
       <div className="product-grid">
         {list.map((product) => (
